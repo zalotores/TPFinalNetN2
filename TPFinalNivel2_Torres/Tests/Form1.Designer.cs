@@ -34,7 +34,13 @@
             this.lblDesconectado = new System.Windows.Forms.Label();
             this.lblDesconectadoResultado = new System.Windows.Forms.Label();
             this.groupBoxTestDDBB = new System.Windows.Forms.GroupBox();
+            this.groupBoxTestTablasAuxiliares = new System.Windows.Forms.GroupBox();
+            this.btnTestTablaMarcas = new System.Windows.Forms.Button();
+            this.btnTestTablaCategoria = new System.Windows.Forms.Button();
+            this.dgvTestTablasAux = new System.Windows.Forms.DataGridView();
             this.groupBoxTestDDBB.SuspendLayout();
+            this.groupBoxTestTablasAuxiliares.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestTablasAux)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTestDDBB
@@ -95,17 +101,60 @@
             this.groupBoxTestDDBB.TabStop = false;
             this.groupBoxTestDDBB.Text = "Conexion a DDBB";
             // 
+            // groupBoxTestTablasAuxiliares
+            // 
+            this.groupBoxTestTablasAuxiliares.Controls.Add(this.dgvTestTablasAux);
+            this.groupBoxTestTablasAuxiliares.Controls.Add(this.btnTestTablaCategoria);
+            this.groupBoxTestTablasAuxiliares.Controls.Add(this.btnTestTablaMarcas);
+            this.groupBoxTestTablasAuxiliares.Location = new System.Drawing.Point(237, 12);
+            this.groupBoxTestTablasAuxiliares.Name = "groupBoxTestTablasAuxiliares";
+            this.groupBoxTestTablasAuxiliares.Size = new System.Drawing.Size(280, 226);
+            this.groupBoxTestTablasAuxiliares.TabIndex = 6;
+            this.groupBoxTestTablasAuxiliares.TabStop = false;
+            this.groupBoxTestTablasAuxiliares.Text = "Conexion a Tablas Auxiliares";
+            // 
+            // btnTestTablaMarcas
+            // 
+            this.btnTestTablaMarcas.Location = new System.Drawing.Point(6, 31);
+            this.btnTestTablaMarcas.Name = "btnTestTablaMarcas";
+            this.btnTestTablaMarcas.Size = new System.Drawing.Size(75, 23);
+            this.btnTestTablaMarcas.TabIndex = 0;
+            this.btnTestTablaMarcas.Text = "Marcas";
+            this.btnTestTablaMarcas.UseVisualStyleBackColor = true;
+            this.btnTestTablaMarcas.Click += new System.EventHandler(this.btnTestTablaMarcas_Click);
+            // 
+            // btnTestTablaCategoria
+            // 
+            this.btnTestTablaCategoria.Location = new System.Drawing.Point(101, 31);
+            this.btnTestTablaCategoria.Name = "btnTestTablaCategoria";
+            this.btnTestTablaCategoria.Size = new System.Drawing.Size(75, 23);
+            this.btnTestTablaCategoria.TabIndex = 1;
+            this.btnTestTablaCategoria.Text = "Categorias";
+            this.btnTestTablaCategoria.UseVisualStyleBackColor = true;
+            this.btnTestTablaCategoria.Click += new System.EventHandler(this.btnTestTablaCategoria_Click);
+            // 
+            // dgvTestTablasAux
+            // 
+            this.dgvTestTablasAux.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTestTablasAux.Location = new System.Drawing.Point(7, 61);
+            this.dgvTestTablasAux.Name = "dgvTestTablasAux";
+            this.dgvTestTablasAux.Size = new System.Drawing.Size(263, 154);
+            this.dgvTestTablasAux.TabIndex = 2;
+            // 
             // formTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBoxTestTablasAuxiliares);
             this.Controls.Add(this.groupBoxTestDDBB);
             this.Name = "formTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pruebas";
             this.groupBoxTestDDBB.ResumeLayout(false);
             this.groupBoxTestDDBB.PerformLayout();
+            this.groupBoxTestTablasAuxiliares.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestTablasAux)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,6 +167,10 @@
         private System.Windows.Forms.Label lblDesconectado;
         private System.Windows.Forms.Label lblDesconectadoResultado;
         private System.Windows.Forms.GroupBox groupBoxTestDDBB;
+        private System.Windows.Forms.GroupBox groupBoxTestTablasAuxiliares;
+        private System.Windows.Forms.Button btnTestTablaCategoria;
+        private System.Windows.Forms.Button btnTestTablaMarcas;
+        private System.Windows.Forms.DataGridView dgvTestTablasAux;
     }
 }
 

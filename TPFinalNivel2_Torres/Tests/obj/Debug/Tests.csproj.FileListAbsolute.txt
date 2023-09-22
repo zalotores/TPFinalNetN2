@@ -11,3 +11,7 @@ C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\obj\Debug\T
 C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\obj\Debug\Tests.csproj.CopyComplete
 C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\obj\Debug\Tests.exe
 C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\obj\Debug\Tests.pdb
+C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\bin\Debug\Dominio.dll
+C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\bin\Debug\Negocio.dll
+C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\bin\Debug\Dominio.pdb
+C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\Tests\bin\Debug\Negocio.pdb

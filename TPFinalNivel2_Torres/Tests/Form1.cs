@@ -1,4 +1,5 @@
 ﻿using DataBase;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace Tests
         {
             InitializeComponent();
         }
-
+        //Test de acceso a datos
         private void btnTestDDBB_Click(object sender, EventArgs e)
         {
             AccesoDatos con = new AccesoDatos();
@@ -31,6 +32,34 @@ namespace Tests
                 con.cerrarConexion();
                 lblDesconectadoResultado.Text = "SI";
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        //Test de conexion a Categoria negocio
+        private void btnTestTablaCategoria_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CategoriaNegocio catNegocio = new CategoriaNegocio();
+                dgvTestTablasAux.DataSource = catNegocio.listar();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        //Test de conexion a Marca negocio
+        private void btnTestTablaMarcas_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+                dgvTestTablasAux.DataSource = marcaNegocio.listar();
             }
             catch (Exception ex)
             {
