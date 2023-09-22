@@ -2,6 +2,7 @@
 using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +29,11 @@ namespace Negocio
                 while (con.Reader.Read())
                 {
                     Articulo articulo = new Articulo();
+                    //TODO corregir bug en codigoArticulo
                     articulo.Id = (int)con.Reader["Id"];
-                    articulo.CodigoArticulo = (int)con.Reader["Codigo"];
+                    articulo.CodigoArticulo =  int.Parse((string)con.Reader["Codigo"]);
                     articulo.Nombre = (string)con.Reader["Nombre"];
-                    articulo.Descripcion = (string)con.Reader["Descripcion"];
+                    articulo.Descripcion = (string)con.Reader["A.Descripcion"];
                     articulo.Marca = new Marca { Descripcion = (string)con.Reader["M.Descripcion"] };
                     articulo.Categoria = new Categoria { Descripcion = (string)con.Reader["C.Descripcion"] };
                     if (!(con.Reader["ImagenUrl"] is DBNull))
