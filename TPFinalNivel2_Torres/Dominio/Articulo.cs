@@ -11,7 +11,7 @@ namespace Dominio
     {
         public int Id {  get; set; }
         [DisplayName("Código")]
-        public int CodigoArticulo {  get; set; }
+        public string CodigoArticulo {  get; set; }
         public string Nombre { get; set; }
         [DisplayName("Descripción")]
         public string Descripcion { get; set; }
@@ -19,6 +19,6 @@ namespace Dominio
         [DisplayName("Categoría")]
         public Categoria Categoria {  get; set; }
         public string Imagen {  get; set; }
-        public float Precio {  get; set; }
+        public decimal Precio {  get; set; }
     }
 }

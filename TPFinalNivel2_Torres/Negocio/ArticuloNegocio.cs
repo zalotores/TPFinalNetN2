@@ -30,14 +30,15 @@ namespace Negocio
                 {
                     Articulo articulo = new Articulo();
                     //TODO corregir bug en codigoArticulo
-                    articulo.Id = (int)con.Reader["Id"];
-                    articulo.CodigoArticulo =  int.Parse((string)con.Reader["Codigo"]);
-                    articulo.Nombre = (string)con.Reader["Nombre"];
-                    articulo.Descripcion = (string)con.Reader["A.Descripcion"];
-                    articulo.Marca = new Marca { Descripcion = (string)con.Reader["M.Descripcion"] };
-                    articulo.Categoria = new Categoria { Descripcion = (string)con.Reader["C.Descripcion"] };
-                    if (!(con.Reader["ImagenUrl"] is DBNull))
-                        articulo.Imagen = (string)con.Reader["ImagenUrl"];
+                    articulo.Id = (int) con.Reader["Id"];
+                    articulo.CodigoArticulo = con.Reader.GetString(1);
+                    articulo.Nombre = con.Reader.GetString(4);
+                    articulo.Descripcion = con.Reader.GetString(5);
+                    articulo.Marca = new Marca { Descripcion = con.Reader.GetString(3) };
+                    articulo.Categoria = new Categoria { Descripcion = con.Reader.GetString(2) };
+                    if (!(con.Reader.GetString(7) is DBNull))
+                        articulo.Imagen = con.Reader.GetString(7);
+                    articulo.Precio = (decimal)con.Reader["Precio"];
 
                     lista.Add(articulo);
                 }

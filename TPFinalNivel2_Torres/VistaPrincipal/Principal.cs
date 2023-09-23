@@ -48,9 +48,9 @@ namespace VistaPrincipal
         private void ocultarColumnas()
         {
             dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["ImagenUrl"].Visible = false;
-            dgvArticulos.Columns["IdMarca"].Visible = false;
-            dgvArticulos.Columns["IdCategoria"].Visible = false;
+            dgvArticulos.Columns["Imagen"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
+
         }
 
         //carga imagen en picturebox
