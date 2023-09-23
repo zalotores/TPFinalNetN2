@@ -36,7 +36,6 @@ namespace VistaPrincipal
                 listaArticulos = negocio.listar();
                 dgvArticulos.DataSource = listaArticulos;
                 fomatearColumnas();
-                cargarImagen(listaArticulos[0].Imagen);
             }
             catch(Exception ex)
             {
@@ -55,20 +54,6 @@ namespace VistaPrincipal
             //cambio el formato de precio para que muestre dos decimales
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "0.00";
 
-        }
-
-        //carga imagen en picturebox
-        private void cargarImagen(string imagen)
-        {
-            try
-            {
-                picbxArticulo.Load(imagen);
-            }
-            catch
-            {
-                //imagen por defecto en caso de no encontrar url de la imagen
-                picbxArticulo.Load("https://demofree.sirv.com/nope-not-here.jpg");
-            }
         }
 
         private void dgvArticulos_MouseDoubleClick(object sender, MouseEventArgs e)
