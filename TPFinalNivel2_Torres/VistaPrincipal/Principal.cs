@@ -12,10 +12,10 @@ using Negocio;
 
 namespace VistaPrincipal
 {
-    public partial class Principal : Form
+    public partial class frmPrincipal : Form
     {
         private List<Articulo> listaArticulos;
-        public Principal()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
@@ -35,7 +35,7 @@ namespace VistaPrincipal
             {
                 listaArticulos = negocio.listar();
                 dgvArticulos.DataSource = listaArticulos;
-                ocultarColumnas();
+                fomatearColumnas();
                 cargarImagen(listaArticulos[0].Imagen);
             }
             catch(Exception ex)
@@ -44,12 +44,16 @@ namespace VistaPrincipal
             }
         }
 
-        //oculta columnas que trae de DDBB pero no quiero visualizar
-        private void ocultarColumnas()
+        //formato de data grid
+        private void fomatearColumnas()
         {
+            //oculta columnas que trae de DDBB pero no quiero visualizar
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["Imagen"].Visible = false;
             dgvArticulos.Columns["Descripcion"].Visible = false;
+
+            //cambio el formato de precio para que muestre dos decimales
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "0.00";
 
         }
 
@@ -66,6 +70,12 @@ namespace VistaPrincipal
                 picbxArticulo.Load("https://demofree.sirv.com/nope-not-here.jpg");
             }
         }
-        
+
+        private void dgvArticulos_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Articulo seleccionado = (Articulo) dgvArticulos.CurrentRow.DataBoundItem;
+            frmDetalle detalle = new frmDetalle(seleccionado);
+            detalle.Show();
+        }
     }
 }

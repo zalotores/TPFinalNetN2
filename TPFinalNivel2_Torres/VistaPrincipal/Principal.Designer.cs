@@ -1,6 +1,6 @@
 ﻿namespace VistaPrincipal
 {
-    partial class Principal
+    partial class frmPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -45,8 +45,10 @@
             this.dgvArticulos.Location = new System.Drawing.Point(12, 34);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.ReadOnly = true;
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(581, 228);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvArticulos_MouseDoubleClick);
             // 
             // picbxArticulo
             // 
@@ -57,16 +59,16 @@
             this.picbxArticulo.TabIndex = 1;
             this.picbxArticulo.TabStop = false;
             // 
-            // Principal
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 512);
             this.Controls.Add(this.picbxArticulo);
             this.Controls.Add(this.dgvArticulos);
-            this.Name = "Principal";
+            this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Catálogo de Artículos";
             this.Load += new System.EventHandler(this.Principal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picbxArticulo)).EndInit();
