@@ -105,54 +105,54 @@
             this.lblDetalleResCodigo.AutoSize = true;
             this.lblDetalleResCodigo.Location = new System.Drawing.Point(80, 26);
             this.lblDetalleResCodigo.Name = "lblDetalleResCodigo";
-            this.lblDetalleResCodigo.Size = new System.Drawing.Size(35, 13);
+            this.lblDetalleResCodigo.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResCodigo.TabIndex = 7;
-            this.lblDetalleResCodigo.Text = "label8";
+            this.lblDetalleResCodigo.Text = "-";
             // 
             // lblDetalleResCategoria
             // 
             this.lblDetalleResCategoria.AutoSize = true;
             this.lblDetalleResCategoria.Location = new System.Drawing.Point(80, 61);
             this.lblDetalleResCategoria.Name = "lblDetalleResCategoria";
-            this.lblDetalleResCategoria.Size = new System.Drawing.Size(35, 13);
+            this.lblDetalleResCategoria.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResCategoria.TabIndex = 8;
-            this.lblDetalleResCategoria.Text = "label9";
+            this.lblDetalleResCategoria.Text = "-";
             // 
             // lblDetalleResMarca
             // 
             this.lblDetalleResMarca.AutoSize = true;
             this.lblDetalleResMarca.Location = new System.Drawing.Point(80, 98);
             this.lblDetalleResMarca.Name = "lblDetalleResMarca";
-            this.lblDetalleResMarca.Size = new System.Drawing.Size(41, 13);
+            this.lblDetalleResMarca.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResMarca.TabIndex = 9;
-            this.lblDetalleResMarca.Text = "label10";
+            this.lblDetalleResMarca.Text = "-";
             // 
             // lblDetalleResNombre
             // 
             this.lblDetalleResNombre.AutoSize = true;
             this.lblDetalleResNombre.Location = new System.Drawing.Point(80, 136);
             this.lblDetalleResNombre.Name = "lblDetalleResNombre";
-            this.lblDetalleResNombre.Size = new System.Drawing.Size(41, 13);
+            this.lblDetalleResNombre.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResNombre.TabIndex = 10;
-            this.lblDetalleResNombre.Text = "label11";
+            this.lblDetalleResNombre.Text = "-";
             // 
             // lblDetalleResDescripcion
             // 
             this.lblDetalleResDescripcion.AutoSize = true;
             this.lblDetalleResDescripcion.Location = new System.Drawing.Point(80, 171);
             this.lblDetalleResDescripcion.Name = "lblDetalleResDescripcion";
-            this.lblDetalleResDescripcion.Size = new System.Drawing.Size(41, 13);
+            this.lblDetalleResDescripcion.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResDescripcion.TabIndex = 11;
-            this.lblDetalleResDescripcion.Text = "label12";
+            this.lblDetalleResDescripcion.Text = "-";
             // 
             // lblDetalleResPrecio
             // 
             this.lblDetalleResPrecio.AutoSize = true;
             this.lblDetalleResPrecio.Location = new System.Drawing.Point(80, 212);
             this.lblDetalleResPrecio.Name = "lblDetalleResPrecio";
-            this.lblDetalleResPrecio.Size = new System.Drawing.Size(41, 13);
+            this.lblDetalleResPrecio.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResPrecio.TabIndex = 12;
-            this.lblDetalleResPrecio.Text = "label13";
+            this.lblDetalleResPrecio.Text = "-";
             // 
             // pcbDetalle
             // 
