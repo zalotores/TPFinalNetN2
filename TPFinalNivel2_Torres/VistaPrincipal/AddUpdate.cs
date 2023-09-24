@@ -40,7 +40,6 @@ namespace VistaPrincipal
             //cargo datos en caso de modificar articulo
             if ((articulo != null))
             {
-                //TODO falta ver bug con marca y categoria = 1
                 txtAddCodigo.Text = articulo.CodigoArticulo;
                 txtAddNombre.Text = articulo.Nombre;
                 txtAddDescripcion.Text = articulo.Descripcion;
@@ -67,39 +66,76 @@ namespace VistaPrincipal
         private void btnAddAceptar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            //saco el null del articulo
-            articulo = new Articulo();
-            try
+            if(articulo is null)
             {
-                //controlo que todos los campos esten cargados, no hace falta controlar marca, categoria, precio ni precio
-                if((txtAddCodigo.Text.Length < 1) | (txtAddNombre.Text.Length < 1) | (txtAddDescripcion.Text.Length < 1))
+                //saco el null del articulo,es el caso de agregar un articulo nuevo
+                articulo = new Articulo();
+                try
                 {
-                    throw new Exception();
+                    //controlo que todos los campos esten cargados, no hace falta controlar
+                    //marca, categoria, precio ni precio
+                    if ((txtAddCodigo.Text.Length < 1) | (txtAddNombre.Text.Length < 1) | 
+                        (txtAddDescripcion.Text.Length < 1))
+                    {
+                        throw new Exception();
+                    }
+                    articulo.CodigoArticulo = txtAddCodigo.Text.ToUpper();
+                    articulo.Nombre = txtAddNombre.Text;
+                    articulo.Descripcion = txtAddDescripcion.Text;
+                    articulo.Marca = (Marca)cboAddMarca.SelectedItem;
+                    articulo.Categoria = (Categoria)cboAddCategoria.SelectedItem;
+                    articulo.Precio = decimal.Parse(txtAddPrecio.Text);
+                    articulo.Imagen = txtAddImagen.Text;
+
+                    //agrego el articulo a la DDBB
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Articulo agregado");
+                    Close();
+
                 }
-                articulo.CodigoArticulo = txtAddCodigo.Text.ToUpper();
-                articulo.Nombre = txtAddNombre.Text;
-                articulo.Descripcion = txtAddDescripcion.Text;
-                articulo.Marca = (Marca)cboAddMarca.SelectedItem;
-                articulo.Categoria = (Categoria)cboAddCategoria.SelectedItem;
-                articulo.Precio = decimal.Parse(txtAddPrecio.Text);
-                articulo.Imagen = txtAddImagen.Text;
+                catch (System.FormatException)
+                {
+                    //capturo cuando el no puede parsear el campo precio
+                    MessageBox.Show("Formato de Precio incorrecto.");
+                }
+                catch
+                {
+                    //capturo campos vacios
+                    MessageBox.Show("Debe completar todos los campos");
 
-                //agrego el articulo a la DDBB
-                negocio.agregar(articulo);
-                MessageBox.Show("Articulo agregado");
-                Close();
+                }
+            }
+            else
+            {
+                //en este caso estoy en modificar articulo, por lo que tengo que cambiar
+                //la query
+                try
+                {
+                    articulo.CodigoArticulo = txtAddCodigo.Text.ToUpper();
+                    articulo.Nombre = txtAddNombre.Text;
+                    articulo.Descripcion = txtAddDescripcion.Text;
+                    articulo.Marca = (Marca)cboAddMarca.SelectedItem;
+                    articulo.Categoria = (Categoria)cboAddCategoria.SelectedItem;
+                    articulo.Precio = decimal.Parse(txtAddPrecio.Text);
+                    articulo.Imagen = txtAddImagen.Text;
 
-            }
-            catch(System.FormatException)
-            {
-                //capturo cuando el no puede parsear el campo precio
-                MessageBox.Show("Formato de Precio incorrecto.");
-            }
-            catch
-            {
-                //capturo campos vacios
-                MessageBox.Show("Debe completar todos los campos");
-                
+                    //actualizo el articulo a la DDBB
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Articulo modificado");
+                    Close();
+                }
+                catch (System.FormatException)
+                {
+                    //capturo cuando el no puede parsear el campo precio
+                    MessageBox.Show("Formato de Precio incorrecto.");
+                }
+                catch
+                {
+                    //capturo campos vacios
+                    MessageBox.Show("Debe completar todos los campos");
+
+                }
+
             }
         }
 
