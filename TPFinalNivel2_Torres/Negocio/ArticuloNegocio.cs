@@ -39,9 +39,10 @@ namespace Negocio
                     articulo.Descripcion = con.Reader.GetString(5);
                     articulo.Marca = new Marca { Descripcion = con.Reader.GetString(3) };
                     articulo.Categoria = new Categoria { Descripcion = con.Reader.GetString(2) };
-                    //TODO corregir cuando imagen es null en DB
-                    if (!(con.Reader.GetString(7) is DBNull))
-                        articulo.Imagen = con.Reader.GetString(7);
+                    //no reviso imagen null ya que voy a hacer el control al agregar de forma
+                    //que no haya campos null
+                    //if (!(con.Reader.GetString(7) is DBNull))
+                    articulo.Imagen = con.Reader.GetString(7);
                     articulo.Precio = (decimal)con.Reader["Precio"];
 
                     lista.Add(articulo);
@@ -60,7 +61,33 @@ namespace Negocio
 
         public void agregar(Articulo articulo)
         {
-            //TODO
+            try
+            {
+                //query para agregar datos con proteccion de injeccion de codigo
+                query = "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria" +
+                    ", ImagenUrl, Precio ) VALUES (@codigo, @nombre, @descripcion, @idMarca, " +
+                    "@idCategoria, @imagen, @precio);";
+                //setear consulta
+                con.setConsulta(query);
+                //setear parametros
+                con.setParametro("@codigo", articulo.CodigoArticulo);
+                con.setParametro("@nombre", articulo.Nombre);
+                con.setParametro("@descripcion", articulo.Descripcion);
+                con.setParametro("@idMarca", articulo.Marca.Id);
+                con.setParametro("@idCategoria", articulo.Categoria.Id);
+                con.setParametro("@imagen", articulo.Imagen);
+                con.setParametro("@precio", articulo.Precio);
+                //ejecutar consulta
+                con.ejecutarQuery();
+            }
+            catch(Exception ex)
+            {
+                throw(ex);
+            }
+            finally
+            {
+                con.cerrarConexion();
+            }
         }
 
         public void modificar(Articulo articulo)

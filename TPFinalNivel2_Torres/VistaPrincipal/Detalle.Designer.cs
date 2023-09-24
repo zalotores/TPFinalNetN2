@@ -38,10 +38,10 @@
             this.lblDetalleResCategoria = new System.Windows.Forms.Label();
             this.lblDetalleResMarca = new System.Windows.Forms.Label();
             this.lblDetalleResNombre = new System.Windows.Forms.Label();
-            this.lblDetalleResDescripcion = new System.Windows.Forms.Label();
             this.lblDetalleResPrecio = new System.Windows.Forms.Label();
             this.pcbDetalle = new System.Windows.Forms.PictureBox();
             this.groupBoxDetalles = new System.Windows.Forms.GroupBox();
+            this.txtboxDetalleResDescripcion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbDetalle)).BeginInit();
             this.groupBoxDetalles.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             // lblDetalleCategoria
             // 
             this.lblDetalleCategoria.AutoSize = true;
-            this.lblDetalleCategoria.Location = new System.Drawing.Point(17, 61);
+            this.lblDetalleCategoria.Location = new System.Drawing.Point(17, 52);
             this.lblDetalleCategoria.Name = "lblDetalleCategoria";
             this.lblDetalleCategoria.Size = new System.Drawing.Size(57, 13);
             this.lblDetalleCategoria.TabIndex = 1;
@@ -67,7 +67,7 @@
             // lblDetalleMarca
             // 
             this.lblDetalleMarca.AutoSize = true;
-            this.lblDetalleMarca.Location = new System.Drawing.Point(34, 98);
+            this.lblDetalleMarca.Location = new System.Drawing.Point(34, 76);
             this.lblDetalleMarca.Name = "lblDetalleMarca";
             this.lblDetalleMarca.Size = new System.Drawing.Size(40, 13);
             this.lblDetalleMarca.TabIndex = 2;
@@ -76,7 +76,7 @@
             // lblDetalleNombre
             // 
             this.lblDetalleNombre.AutoSize = true;
-            this.lblDetalleNombre.Location = new System.Drawing.Point(27, 136);
+            this.lblDetalleNombre.Location = new System.Drawing.Point(27, 100);
             this.lblDetalleNombre.Name = "lblDetalleNombre";
             this.lblDetalleNombre.Size = new System.Drawing.Size(47, 13);
             this.lblDetalleNombre.TabIndex = 3;
@@ -85,7 +85,7 @@
             // lblDetalleDescripcion
             // 
             this.lblDetalleDescripcion.AutoSize = true;
-            this.lblDetalleDescripcion.Location = new System.Drawing.Point(8, 171);
+            this.lblDetalleDescripcion.Location = new System.Drawing.Point(8, 150);
             this.lblDetalleDescripcion.Name = "lblDetalleDescripcion";
             this.lblDetalleDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDetalleDescripcion.TabIndex = 4;
@@ -94,7 +94,7 @@
             // lblDetallePrecio
             // 
             this.lblDetallePrecio.AutoSize = true;
-            this.lblDetallePrecio.Location = new System.Drawing.Point(34, 212);
+            this.lblDetallePrecio.Location = new System.Drawing.Point(34, 126);
             this.lblDetallePrecio.Name = "lblDetallePrecio";
             this.lblDetallePrecio.Size = new System.Drawing.Size(40, 13);
             this.lblDetallePrecio.TabIndex = 5;
@@ -112,7 +112,7 @@
             // lblDetalleResCategoria
             // 
             this.lblDetalleResCategoria.AutoSize = true;
-            this.lblDetalleResCategoria.Location = new System.Drawing.Point(80, 61);
+            this.lblDetalleResCategoria.Location = new System.Drawing.Point(80, 52);
             this.lblDetalleResCategoria.Name = "lblDetalleResCategoria";
             this.lblDetalleResCategoria.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResCategoria.TabIndex = 8;
@@ -121,7 +121,7 @@
             // lblDetalleResMarca
             // 
             this.lblDetalleResMarca.AutoSize = true;
-            this.lblDetalleResMarca.Location = new System.Drawing.Point(80, 98);
+            this.lblDetalleResMarca.Location = new System.Drawing.Point(80, 76);
             this.lblDetalleResMarca.Name = "lblDetalleResMarca";
             this.lblDetalleResMarca.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResMarca.TabIndex = 9;
@@ -130,25 +130,16 @@
             // lblDetalleResNombre
             // 
             this.lblDetalleResNombre.AutoSize = true;
-            this.lblDetalleResNombre.Location = new System.Drawing.Point(80, 136);
+            this.lblDetalleResNombre.Location = new System.Drawing.Point(80, 100);
             this.lblDetalleResNombre.Name = "lblDetalleResNombre";
             this.lblDetalleResNombre.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResNombre.TabIndex = 10;
             this.lblDetalleResNombre.Text = "-";
             // 
-            // lblDetalleResDescripcion
-            // 
-            this.lblDetalleResDescripcion.AutoSize = true;
-            this.lblDetalleResDescripcion.Location = new System.Drawing.Point(80, 171);
-            this.lblDetalleResDescripcion.Name = "lblDetalleResDescripcion";
-            this.lblDetalleResDescripcion.Size = new System.Drawing.Size(10, 13);
-            this.lblDetalleResDescripcion.TabIndex = 11;
-            this.lblDetalleResDescripcion.Text = "-";
-            // 
             // lblDetalleResPrecio
             // 
             this.lblDetalleResPrecio.AutoSize = true;
-            this.lblDetalleResPrecio.Location = new System.Drawing.Point(80, 212);
+            this.lblDetalleResPrecio.Location = new System.Drawing.Point(80, 126);
             this.lblDetalleResPrecio.Name = "lblDetalleResPrecio";
             this.lblDetalleResPrecio.Size = new System.Drawing.Size(10, 13);
             this.lblDetalleResPrecio.TabIndex = 12;
@@ -166,11 +157,11 @@
             // 
             // groupBoxDetalles
             // 
+            this.groupBoxDetalles.Controls.Add(this.txtboxDetalleResDescripcion);
             this.groupBoxDetalles.Controls.Add(this.lblDetalleCodigo);
             this.groupBoxDetalles.Controls.Add(this.lblDetalleCategoria);
             this.groupBoxDetalles.Controls.Add(this.lblDetalleResPrecio);
             this.groupBoxDetalles.Controls.Add(this.lblDetalleMarca);
-            this.groupBoxDetalles.Controls.Add(this.lblDetalleResDescripcion);
             this.groupBoxDetalles.Controls.Add(this.lblDetalleNombre);
             this.groupBoxDetalles.Controls.Add(this.lblDetalleResNombre);
             this.groupBoxDetalles.Controls.Add(this.lblDetalleDescripcion);
@@ -184,6 +175,15 @@
             this.groupBoxDetalles.TabIndex = 14;
             this.groupBoxDetalles.TabStop = false;
             this.groupBoxDetalles.Text = "Información";
+            // 
+            // txtboxDetalleResDescripcion
+            // 
+            this.txtboxDetalleResDescripcion.Location = new System.Drawing.Point(78, 147);
+            this.txtboxDetalleResDescripcion.Multiline = true;
+            this.txtboxDetalleResDescripcion.Name = "txtboxDetalleResDescripcion";
+            this.txtboxDetalleResDescripcion.ReadOnly = true;
+            this.txtboxDetalleResDescripcion.Size = new System.Drawing.Size(156, 76);
+            this.txtboxDetalleResDescripcion.TabIndex = 15;
             // 
             // frmDetalle
             // 
@@ -217,9 +217,9 @@
         private System.Windows.Forms.Label lblDetalleResCategoria;
         private System.Windows.Forms.Label lblDetalleResMarca;
         private System.Windows.Forms.Label lblDetalleResNombre;
-        private System.Windows.Forms.Label lblDetalleResDescripcion;
         private System.Windows.Forms.Label lblDetalleResPrecio;
         private System.Windows.Forms.PictureBox pcbDetalle;
         protected System.Windows.Forms.GroupBox groupBoxDetalles;
+        private System.Windows.Forms.TextBox txtboxDetalleResDescripcion;
     }
 }

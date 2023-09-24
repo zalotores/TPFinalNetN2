@@ -27,7 +27,7 @@ namespace VistaPrincipal
             lblDetalleResCategoria.Text = articulo.Categoria.ToString();
             lblDetalleResMarca.Text = articulo.Marca.ToString();
             lblDetalleResNombre.Text = articulo.Nombre.ToString();
-            lblDetalleResDescripcion.Text = articulo.Descripcion.ToString();
+            txtboxDetalleResDescripcion.Text = articulo.Descripcion.ToString();
             lblDetalleResPrecio.Text = articulo.Precio.ToString("$ 0.00");
 
             //cargo imagen de articulo

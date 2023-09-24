@@ -16,3 +16,4 @@ C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\VistaPrincipal\ob
 C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\VistaPrincipal\obj\Debug\VistaPrincipal.pdb
 C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\VistaPrincipal\obj\Debug\VistaPrincipal.frmDetalle.resources
 C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\VistaPrincipal\obj\Debug\VistaPrincipal.frmPrincipal.resources
+C:\datos\zalo\cursos\MaxiPrograma\finalN2\TPFinalNivel2_Torres\VistaPrincipal\obj\Debug\VistaPrincipal.frmAddUpdate.resources
