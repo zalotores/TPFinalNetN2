@@ -32,11 +32,10 @@ namespace VistaPrincipal
             cboAddMarca.DataSource = marcaNegocio.listar();
             cboAddMarca.ValueMember = "Id";
             cboAddMarca.DisplayMember = "Descripcion";
-            cboAddMarca.ResetText();
+          
             cboAddCategoria.DataSource = categoriaNegocio.listar();
             cboAddCategoria.ValueMember = "Id";
             cboAddCategoria.DisplayMember = "Descripcion";
-            cboAddCategoria.ResetText();
 
             //cargo datos en caso de modificar articulo
             if ((articulo != null))
@@ -50,6 +49,12 @@ namespace VistaPrincipal
                 txtAddPrecio.Text = articulo.Precio.ToString();
                 txtAddImagen.Text = articulo.Imagen;
                 cargarImagen(txtAddImagen.Text);
+            }
+            else
+            {
+                //dejo los campos en blanco para el caso de agregar articulo
+                cboAddMarca.ResetText();
+                cboAddCategoria.ResetText();
             }
         }
         //cierra la ventana sin guardar nada
