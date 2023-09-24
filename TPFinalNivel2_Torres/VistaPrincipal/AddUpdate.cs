@@ -52,6 +52,11 @@ namespace VistaPrincipal
             articulo = new Articulo();
             try
             {
+                //controlo que todos los campos esten cargados, no hace falta controlar marca, categoria, precio ni precio
+                if((txtAddCodigo.Text.Length < 1) | (txtAddNombre.Text.Length < 1) | (txtAddDescripcion.Text.Length < 1))
+                {
+                    throw new Exception();
+                }
                 articulo.CodigoArticulo = txtAddCodigo.Text.ToUpper();
                 articulo.Nombre = txtAddNombre.Text;
                 articulo.Descripcion = txtAddDescripcion.Text;
@@ -66,9 +71,16 @@ namespace VistaPrincipal
                 Close();
 
             }
+            catch(System.FormatException)
+            {
+                //capturo cuando el no puede parsear el campo precio
+                MessageBox.Show("Formato de Precio incorrecto.");
+            }
             catch
             {
+                //capturo campos vacios
                 MessageBox.Show("Debe completar todos los campos");
+                
             }
         }
 
@@ -90,6 +102,17 @@ namespace VistaPrincipal
             {
                 //imagen por defecto en caso de no encontrar url de la imagen
                 picboxAddImagen.Load("https://demofree.sirv.com/nope-not-here.jpg");
+            }
+        }
+        //dialogo para cargar imagen desde archivo
+        private void btnAddArchivo_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog arquivo = new OpenFileDialog();
+            arquivo.Filter = "jpg|*.jpg | png|*png | bmp|*bmp | jpeg|*jpeg";
+            if(arquivo.ShowDialog() == DialogResult.OK)
+            {
+                txtAddImagen.Text = arquivo.FileName;
+                cargarImagen(txtAddImagen.Text);
             }
         }
     }
