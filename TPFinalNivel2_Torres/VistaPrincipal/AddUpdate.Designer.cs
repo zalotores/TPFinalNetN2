@@ -38,14 +38,14 @@
             this.txtAddCodigo = new System.Windows.Forms.TextBox();
             this.txtAddNombre = new System.Windows.Forms.TextBox();
             this.txtAddDescripcion = new System.Windows.Forms.TextBox();
-            this.txtAddMarca = new System.Windows.Forms.TextBox();
-            this.txtAddCategoria = new System.Windows.Forms.TextBox();
             this.txtAddImagen = new System.Windows.Forms.TextBox();
             this.txtAddPrecio = new System.Windows.Forms.TextBox();
             this.picboxAddImagen = new System.Windows.Forms.PictureBox();
             this.btnAddCancelar = new System.Windows.Forms.Button();
             this.btnAddAceptar = new System.Windows.Forms.Button();
             this.groupBoxAdd = new System.Windows.Forms.GroupBox();
+            this.cboAddMarca = new System.Windows.Forms.ComboBox();
+            this.cboAddCategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxAddImagen)).BeginInit();
             this.groupBoxAdd.SuspendLayout();
             this.SuspendLayout();
@@ -118,14 +118,14 @@
             this.txtAddCodigo.Location = new System.Drawing.Point(81, 24);
             this.txtAddCodigo.Name = "txtAddCodigo";
             this.txtAddCodigo.Size = new System.Drawing.Size(138, 20);
-            this.txtAddCodigo.TabIndex = 7;
+            this.txtAddCodigo.TabIndex = 0;
             // 
             // txtAddNombre
             // 
             this.txtAddNombre.Location = new System.Drawing.Point(81, 55);
             this.txtAddNombre.Name = "txtAddNombre";
             this.txtAddNombre.Size = new System.Drawing.Size(138, 20);
-            this.txtAddNombre.TabIndex = 8;
+            this.txtAddNombre.TabIndex = 1;
             // 
             // txtAddDescripcion
             // 
@@ -133,35 +133,22 @@
             this.txtAddDescripcion.Multiline = true;
             this.txtAddDescripcion.Name = "txtAddDescripcion";
             this.txtAddDescripcion.Size = new System.Drawing.Size(138, 66);
-            this.txtAddDescripcion.TabIndex = 9;
-            // 
-            // txtAddMarca
-            // 
-            this.txtAddMarca.Location = new System.Drawing.Point(81, 156);
-            this.txtAddMarca.Name = "txtAddMarca";
-            this.txtAddMarca.Size = new System.Drawing.Size(138, 20);
-            this.txtAddMarca.TabIndex = 10;
-            // 
-            // txtAddCategoria
-            // 
-            this.txtAddCategoria.Location = new System.Drawing.Point(81, 182);
-            this.txtAddCategoria.Name = "txtAddCategoria";
-            this.txtAddCategoria.Size = new System.Drawing.Size(138, 20);
-            this.txtAddCategoria.TabIndex = 11;
+            this.txtAddDescripcion.TabIndex = 2;
             // 
             // txtAddImagen
             // 
             this.txtAddImagen.Location = new System.Drawing.Point(81, 208);
             this.txtAddImagen.Name = "txtAddImagen";
             this.txtAddImagen.Size = new System.Drawing.Size(138, 20);
-            this.txtAddImagen.TabIndex = 12;
+            this.txtAddImagen.TabIndex = 5;
+            this.txtAddImagen.Leave += new System.EventHandler(this.txtAddImagen_Leave);
             // 
             // txtAddPrecio
             // 
             this.txtAddPrecio.Location = new System.Drawing.Point(81, 234);
             this.txtAddPrecio.Name = "txtAddPrecio";
             this.txtAddPrecio.Size = new System.Drawing.Size(138, 20);
-            this.txtAddPrecio.TabIndex = 13;
+            this.txtAddPrecio.TabIndex = 6;
             // 
             // picboxAddImagen
             // 
@@ -177,7 +164,7 @@
             this.btnAddCancelar.Location = new System.Drawing.Point(157, 293);
             this.btnAddCancelar.Name = "btnAddCancelar";
             this.btnAddCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCancelar.TabIndex = 15;
+            this.btnAddCancelar.TabIndex = 1;
             this.btnAddCancelar.Text = "Cancelar";
             this.btnAddCancelar.UseVisualStyleBackColor = true;
             this.btnAddCancelar.Click += new System.EventHandler(this.btnAddCancelar_Click);
@@ -187,12 +174,15 @@
             this.btnAddAceptar.Location = new System.Drawing.Point(44, 293);
             this.btnAddAceptar.Name = "btnAddAceptar";
             this.btnAddAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAddAceptar.TabIndex = 16;
+            this.btnAddAceptar.TabIndex = 0;
             this.btnAddAceptar.Text = "Aceptar";
             this.btnAddAceptar.UseVisualStyleBackColor = true;
+            this.btnAddAceptar.Click += new System.EventHandler(this.btnAddAceptar_Click);
             // 
             // groupBoxAdd
             // 
+            this.groupBoxAdd.Controls.Add(this.cboAddCategoria);
+            this.groupBoxAdd.Controls.Add(this.cboAddMarca);
             this.groupBoxAdd.Controls.Add(this.lblAddCodigo);
             this.groupBoxAdd.Controls.Add(this.lblAddNombre);
             this.groupBoxAdd.Controls.Add(this.lblAddDescripcion);
@@ -202,9 +192,7 @@
             this.groupBoxAdd.Controls.Add(this.lblAddCat);
             this.groupBoxAdd.Controls.Add(this.txtAddImagen);
             this.groupBoxAdd.Controls.Add(this.lblAddImage);
-            this.groupBoxAdd.Controls.Add(this.txtAddCategoria);
             this.groupBoxAdd.Controls.Add(this.lblAddPrecio);
-            this.groupBoxAdd.Controls.Add(this.txtAddMarca);
             this.groupBoxAdd.Controls.Add(this.txtAddCodigo);
             this.groupBoxAdd.Controls.Add(this.txtAddDescripcion);
             this.groupBoxAdd.Controls.Add(this.txtAddNombre);
@@ -214,6 +202,22 @@
             this.groupBoxAdd.TabIndex = 17;
             this.groupBoxAdd.TabStop = false;
             this.groupBoxAdd.Text = "Articulo";
+            // 
+            // cboAddMarca
+            // 
+            this.cboAddMarca.FormattingEnabled = true;
+            this.cboAddMarca.Location = new System.Drawing.Point(81, 157);
+            this.cboAddMarca.Name = "cboAddMarca";
+            this.cboAddMarca.Size = new System.Drawing.Size(138, 21);
+            this.cboAddMarca.TabIndex = 15;
+            // 
+            // cboAddCategoria
+            // 
+            this.cboAddCategoria.FormattingEnabled = true;
+            this.cboAddCategoria.Location = new System.Drawing.Point(81, 184);
+            this.cboAddCategoria.Name = "cboAddCategoria";
+            this.cboAddCategoria.Size = new System.Drawing.Size(138, 21);
+            this.cboAddCategoria.TabIndex = 16;
             // 
             // frmAddUpdate
             // 
@@ -249,13 +253,13 @@
         private System.Windows.Forms.TextBox txtAddCodigo;
         private System.Windows.Forms.TextBox txtAddNombre;
         private System.Windows.Forms.TextBox txtAddDescripcion;
-        private System.Windows.Forms.TextBox txtAddMarca;
-        private System.Windows.Forms.TextBox txtAddCategoria;
         private System.Windows.Forms.TextBox txtAddImagen;
         private System.Windows.Forms.TextBox txtAddPrecio;
         private System.Windows.Forms.PictureBox picboxAddImagen;
         private System.Windows.Forms.Button btnAddCancelar;
         private System.Windows.Forms.Button btnAddAceptar;
         private System.Windows.Forms.GroupBox groupBoxAdd;
+        private System.Windows.Forms.ComboBox cboAddCategoria;
+        private System.Windows.Forms.ComboBox cboAddMarca;
     }
 }

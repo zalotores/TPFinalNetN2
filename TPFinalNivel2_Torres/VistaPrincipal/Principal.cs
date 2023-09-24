@@ -36,7 +36,7 @@ namespace VistaPrincipal
                 dgvArticulos.DataSource = listaArticulos;
                 fomatearColumnas();
             }
-            catch(Exception ex) 
+            catch 
             {
                 MessageBox.Show("Error al conectar a la Base de Datos");
             }
@@ -69,15 +69,24 @@ namespace VistaPrincipal
                 MessageBox.Show("Ningun artículo listado!");
             }
         }
+
         //entrada a ventana agregar
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if(!(dgvArticulos.CurrentRow is null))
+            frmAddUpdate agregar = new frmAddUpdate();
+            //creo instancia unica
+            agregar.ShowDialog();
+            cargar();
+        }
+        //entrada para modificar articulo
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (!(dgvArticulos.CurrentRow is null))
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                frmAddUpdate agregar = new frmAddUpdate();
+                frmAddUpdate modificar = new frmAddUpdate();
                 //creo instancia unica
-                agregar.ShowDialog();
+                modificar.ShowDialog();
                 cargar();
             }
             else
