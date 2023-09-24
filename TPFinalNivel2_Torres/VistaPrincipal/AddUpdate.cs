@@ -37,6 +37,20 @@ namespace VistaPrincipal
             cboAddCategoria.ValueMember = "Id";
             cboAddCategoria.DisplayMember = "Descripcion";
             cboAddCategoria.ResetText();
+
+            //cargo datos en caso de modificar articulo
+            if ((articulo != null))
+            {
+                //TODO falta ver bug con marca y categoria = 1
+                txtAddCodigo.Text = articulo.CodigoArticulo;
+                txtAddNombre.Text = articulo.Nombre;
+                txtAddDescripcion.Text = articulo.Descripcion;
+                cboAddMarca.SelectedValue = articulo.Marca.Id;
+                cboAddCategoria.SelectedValue = articulo.Categoria.Id;
+                txtAddPrecio.Text = articulo.Precio.ToString();
+                txtAddImagen.Text = articulo.Imagen;
+                cargarImagen(txtAddImagen.Text);
+            }
         }
         //cierra la ventana sin guardar nada
         private void btnAddCancelar_Click(object sender, EventArgs e)

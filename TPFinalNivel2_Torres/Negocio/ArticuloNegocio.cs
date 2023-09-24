@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Negocio
-{
+{   
     public class ArticuloNegocio
     {
         //habilito la conexion con DDBB para todo el negocio
@@ -37,8 +37,8 @@ namespace Negocio
                     articulo.CodigoArticulo = con.Reader.GetString(1);
                     articulo.Nombre = con.Reader.GetString(4);
                     articulo.Descripcion = con.Reader.GetString(5);
-                    articulo.Marca = new Marca { Descripcion = con.Reader.GetString(3) };
-                    articulo.Categoria = new Categoria { Descripcion = con.Reader.GetString(2) };
+                    articulo.Marca = new Marca((int)con.Reader["IdMarca"], con.Reader.GetString(3));
+                    articulo.Categoria = new Categoria((int)con.Reader["IdCategoria"], con.Reader.GetString(2));
                     //no reviso imagen null ya que voy a hacer el control al agregar de forma
                     //que no haya campos null
                     //if (!(con.Reader.GetString(7) is DBNull))

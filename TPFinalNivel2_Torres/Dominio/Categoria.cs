@@ -9,6 +9,12 @@ namespace Dominio
 {
     public class Categoria
     {
+        public Categoria() { }
+        public Categoria(int id, string descripcion) 
+        {
+            this.Id = id;
+            this.Descripcion = descripcion;
+        }
         public int Id { get; set; }
         [DisplayName("Descripción")]
         public string Descripcion { get; set; }

@@ -84,7 +84,7 @@ namespace VistaPrincipal
             if (!(dgvArticulos.CurrentRow is null))
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                frmAddUpdate modificar = new frmAddUpdate();
+                frmAddUpdate modificar = new frmAddUpdate(seleccionado);
                 //creo instancia unica
                 modificar.ShowDialog();
                 cargar();
