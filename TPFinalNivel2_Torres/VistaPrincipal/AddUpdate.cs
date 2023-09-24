@@ -1,6 +1,7 @@
 ﻿using Dominio;
 using Negocio;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace VistaPrincipal
@@ -84,6 +85,9 @@ namespace VistaPrincipal
                     articulo.Descripcion = txtAddDescripcion.Text;
                     articulo.Marca = (Marca)cboAddMarca.SelectedItem;
                     articulo.Categoria = (Categoria)cboAddCategoria.SelectedItem;
+                    //genero un error si el precio tiene punto en lugar de coma
+                    if(txtAddPrecio.Text.Contains('.'))
+                        throw new FormatException();
                     articulo.Precio = decimal.Parse(txtAddPrecio.Text);
                     articulo.Imagen = txtAddImagen.Text;
 
@@ -116,6 +120,9 @@ namespace VistaPrincipal
                     articulo.Descripcion = txtAddDescripcion.Text;
                     articulo.Marca = (Marca)cboAddMarca.SelectedItem;
                     articulo.Categoria = (Categoria)cboAddCategoria.SelectedItem;
+                    //genero un error si el precio tiene punto en lugar de coma
+                    if (txtAddPrecio.Text.Contains('.'))
+                        throw new FormatException();
                     articulo.Precio = decimal.Parse(txtAddPrecio.Text);
                     articulo.Imagen = txtAddImagen.Text;
 

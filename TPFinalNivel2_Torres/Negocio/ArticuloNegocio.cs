@@ -90,12 +90,12 @@ namespace Negocio
             }
         }
 
-        public void modificar(Articulo articulo)    //TODO ver por que no actualiza, no toma el parametro
+        public void modificar(Articulo articulo)
         {
             //query para hacer update en DDBB
-            query = "UPDATE ARTICULOS SET Codigo = '@codigo', Nombre = '@nombre', " +
-                "Descripcion = '@descripcion', IdMarca = @idMarca, IdCategoria = @idCategoria" +
-                ", ImagenUrl = '@imagen', Precio = @precio WHERE Id = @id; ";
+            query = "UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, " +
+                "Descripcion = @descripcion, IdMarca = @idMarca, IdCategoria = @idCategoria" +
+                ", ImagenUrl = @imagen, Precio = @precio WHERE Id = @id; ";
             try
             {
                 //setear consulta
