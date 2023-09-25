@@ -143,6 +143,7 @@ namespace Negocio
             {
                 //cierro conexion a DDBB
                 con.cerrarConexion();
+
             }
 
         }

@@ -23,6 +23,7 @@ namespace VistaPrincipal
         private void Principal_Load(object sender, EventArgs e)
         {
             cargar();
+            //TODO agregar carga de combo box de filtros
         }
 
         //carga de tabla
@@ -117,6 +118,24 @@ namespace VistaPrincipal
             {
                 MessageBox.Show("Error al eliminar articulo.");
             }
+        }
+        //borrar filtros y resetear lista de articulos
+        private void btnFiltroReset_Click(object sender, EventArgs e)
+        {
+            //borar todos los filtros
+            cboFiltroCategoria.ResetText();
+            cboFiltroMarca.ResetText();
+            cboFiltroParam.ResetText();
+            txtFiltroParam.Text = "";
+            txtFiltroRangoMin.Text = "";
+            txtFiltroRangoMax.Text = "";
+            //volver a cargar lista
+            cargar();
+        }
+        //logica para filtrar datos
+        private void btnFiltroAceptar_Click(object sender, EventArgs e)
+        {
+            //TODO
         }
     }
 }
