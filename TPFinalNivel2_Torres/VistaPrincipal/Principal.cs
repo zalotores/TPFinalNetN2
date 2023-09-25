@@ -95,5 +95,28 @@ namespace VistaPrincipal
                 MessageBox.Show("Ningun artículo listado!");
             }
         }
+        //entrada para eliminar articulo
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            try
+            {
+                //pido confirmacion
+                DialogResult respuesta = MessageBox.Show("Eliminar el artículo " + 
+                    seleccionado.Nombre + "?", "Eliminando...", MessageBoxButtons.YesNo, 
+                    MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    //envio el id para eliminar al negocio
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error al eliminar articulo.");
+            }
+        }
     }
 }

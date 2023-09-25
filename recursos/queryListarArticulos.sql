@@ -16,3 +16,11 @@ IdMarca, IdCategoria FROM ARTICULOS A, CATEGORIAS C, MARCAS M WHERE A.IdMarca = 
 
 INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio ) VALUES ('001', 'Prueba1', 'Otra prueba', 1, 1, '', 1.1);
 
+--comando para update--
+
+UPDATE ARTICULOS SET Codigo = '@', Nombre = '@', Descripcion = '@', IdMarca = 1, IdCategoria = 1, ImagenUrl = '@', Precio = 0 WHERE Id = 14; 
+
+--comando para delete--
+
+DELETE FROM ARTICULOS WHERE Id = 12;
+

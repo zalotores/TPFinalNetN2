@@ -124,7 +124,27 @@ namespace Negocio
 
         public void eliminar(int id)
         {
-            //TODO
+            //query para delete en DDBB
+            query = "DELETE FROM ARTICULOS WHERE Id = @id;";
+            try
+            {
+                //setear consulta
+                con.setConsulta(query);
+                //setear paramero
+                con.setParametro("@id", id);
+                //ejecutar query
+                con.ejecutarAccion();
+            }
+            catch
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                //cierro conexion a DDBB
+                con.cerrarConexion();
+            }
+
         }
 
     }
