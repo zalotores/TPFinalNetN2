@@ -24,3 +24,8 @@ UPDATE ARTICULOS SET Codigo = '@', Nombre = '@', Descripcion = '@', IdMarca = 1,
 
 DELETE FROM ARTICULOS WHERE Id = 12;
 
+--filtro para marca--
+
+SELECT A.Id, Codigo AS Código, C.Descripcion AS Categoría, M.Descripcion AS Marca, Nombre, A.Descripcion as Descripción, Precio, ImagenUrl, 
+IdMarca, IdCategoria FROM ARTICULOS A, CATEGORIAS C, MARCAS M WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id AND Codigo LIKE '%S%' 
+AND Precio > 30000 AND Precio < 40000

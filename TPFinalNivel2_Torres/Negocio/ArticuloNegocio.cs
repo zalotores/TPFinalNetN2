@@ -13,16 +13,15 @@ namespace Negocio
     {
         //habilito la conexion con DDBB para todo el negocio
         AccesoDatos con = new AccesoDatos();
-        //variable para ejecutar las query
-        string query = string.Empty;
-        
+        //variable para ejecutar las query, inicializo con la que se usa para listar()
+        string query = "SELECT A.Id, Codigo AS Código, C.Descripcion AS Categoría, " +
+                "M.Descripcion AS Marca, Nombre, A.Descripcion as Descripción, Precio, " +
+                "ImagenUrl, IdMarca, IdCategoria FROM ARTICULOS A, CATEGORIAS C, MARCAS M " +
+                "WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id";
+
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            query = "SELECT A.Id, Codigo AS Código, C.Descripcion AS Categoría, " +
-                "M.Descripcion AS Marca, Nombre, A.Descripcion as Descripción, Precio, " +
-                "ImagenUrl, IdMarca, IdCategoria FROM ARTICULOS A, CATEGORIAS C, MARCAS M " +
-                "WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id;";
 
             try
             {
@@ -32,7 +31,6 @@ namespace Negocio
                 while (con.Reader.Read())
                 {
                     Articulo articulo = new Articulo();
-                    //TODO corregir bug en codigoArticulo
                     articulo.Id = (int) con.Reader["Id"];
                     articulo.CodigoArticulo = con.Reader.GetString(1);
                     articulo.Nombre = con.Reader.GetString(4);
@@ -159,8 +157,27 @@ namespace Negocio
             string nombre, string descripcion, decimal precioMin, decimal precioMax)
         {
             List<Articulo> listaFiltrada = new List<Articulo> ();
-            //TODO
+            //string para agregar a la query de listar()
+            string filtro = "";
 
+            if (marca.Id != 0)
+                filtro = filtro + " AND M.Id = " + marca.Id;
+            if(categoria.Id != 0)
+                filtro = filtro + " AND C.Id = " + categoria.Id;
+            if (codigo.Length > 0)
+                filtro = filtro + " AND Codigo LIKE '%"+ codigo + "%'";
+            if (nombre.Length > 0)
+                filtro = filtro + " AND Nombre LIKE '%" + nombre + "%'";
+            if (descripcion.Length > 0)
+                filtro = filtro + " AND A.Descripcion LIKE '%" + descripcion + "%'";
+            if (precioMin > 0)
+                filtro = filtro + " AND Precio > " + precioMin;
+            if (precioMax < decimal.MaxValue)
+                filtro = filtro + " And Precio < " + precioMax;
+
+            //completado el string de filtro mando la nueva query
+            query += filtro;
+            listaFiltrada = listar();
             return listaFiltrada;
         }
 

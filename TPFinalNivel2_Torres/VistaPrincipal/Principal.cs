@@ -14,7 +14,10 @@ namespace VistaPrincipal
 {
     public partial class frmPrincipal : Form
     {
+        //lista donde se van a mostrar los articulos en pantalla
         private List<Articulo> listaArticulos;
+        //flag para saber si esta aplicado un filtro
+        bool filtrado = false;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -29,11 +32,15 @@ namespace VistaPrincipal
         //carga de tabla
         private void cargar()
         {
+            
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
-                listaArticulos = negocio.listar();
+                if(!filtrado)   //solamente entra cuando no esta aplicado filtro
+                {
+                    listaArticulos = negocio.listar();
+                }
                 dgvArticulos.DataSource = listaArticulos;
                 fomatearColumnas();
             }
@@ -122,6 +129,7 @@ namespace VistaPrincipal
         //borrar filtros y resetear lista de articulos
         private void btnFiltroReset_Click(object sender, EventArgs e)
         {
+            filtrado = false;
             resetFiltros();
         }
         //logica para filtrar datos
@@ -136,7 +144,7 @@ namespace VistaPrincipal
             string descripcionFiltro = "";
             string campoFiltro = "";
             decimal precioMinFiltro = 0;
-            decimal precioMaxFiltro = 0;
+            decimal precioMaxFiltro = decimal.MaxValue;
 
             //filtro valores incorrectos precio
             try
@@ -168,22 +176,24 @@ namespace VistaPrincipal
             catFiltro = (Categoria)cboFiltroCategoria.SelectedItem;
 
             //cargo parametro de filtrado adicional
-            string filtrado = cboFiltroParam.SelectedItem.ToString();
+            string txtFiltrado = cboFiltroParam.SelectedItem.ToString();
             campoFiltro = txtFiltroParam.Text.Trim();
-            if (campoFiltro.Length > 1)  //si no esta vacio el campo cargo donde corresponda
+            if (campoFiltro.Length > 0)  //si no esta vacio el campo cargo donde corresponda
             {
-                if (filtrado == "Código")
+                if (txtFiltrado == "Código")
                     codigoFiltro = campoFiltro;
-                else if(filtrado == "Nombre")
+                else if(txtFiltrado == "Nombre")
                     nombreFiltro = campoFiltro;
-                else if(filtrado == "Descripción")
+                else if(txtFiltrado == "Descripción")
                     descripcionFiltro = campoFiltro;
             }
 
             //ya seteados los parametros, envio query
 
-            negocio.filtrar(marcaFiltro, catFiltro, codigoFiltro, nombreFiltro, 
+            listaArticulos = negocio.filtrar(marcaFiltro, catFiltro, codigoFiltro, nombreFiltro, 
                 descripcionFiltro, precioMinFiltro, precioMaxFiltro);
+            filtrado = true;
+            cargar();
             
         }
 
@@ -204,7 +214,7 @@ namespace VistaPrincipal
 
         //funcion para inicializar combo box de filtros
         private void iniciarFiltros()
-        {
+        {            
             //filtro para seccion marca / categoria
             List<Marca> listaMarcas = new List<Marca>();
             MarcaNegocio marcaNeg = new MarcaNegocio();
