@@ -251,5 +251,11 @@ namespace VistaPrincipal
 
             resetFiltros();
         }
+
+        private void soporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout about = new frmAbout();
+            about.ShowDialog();
+        }
     }
 }

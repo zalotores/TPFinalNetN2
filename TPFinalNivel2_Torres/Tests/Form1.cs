@@ -101,5 +101,17 @@ namespace Tests
                 MessageBox.Show("Categoria generada | id: " + articulo.Categoria.Id.ToString() +
                 " | descripcion: " + articulo.Categoria.Descripcion);
         }
+
+        private void linkLabelTest_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://www.youtube.com/watch?v=dQw4w9WgXcQ&autoplay=1");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
