@@ -171,29 +171,36 @@ namespace VistaPrincipal
                 MessageBox.Show(ex.Message);
             }
 
-            // cargo marca y categoria
-            marcaFiltro = (Marca) cboFiltroMarca.SelectedItem;
-            catFiltro = (Categoria)cboFiltroCategoria.SelectedItem;
-
-            //cargo parametro de filtrado adicional
-            string txtFiltrado = cboFiltroParam.SelectedItem.ToString();
-            campoFiltro = txtFiltroParam.Text.Trim();
-            if (campoFiltro.Length > 0)  //si no esta vacio el campo cargo donde corresponda
+            try
             {
-                if (txtFiltrado == "Código")
-                    codigoFiltro = campoFiltro;
-                else if(txtFiltrado == "Nombre")
-                    nombreFiltro = campoFiltro;
-                else if(txtFiltrado == "Descripción")
-                    descripcionFiltro = campoFiltro;
+                // cargo marca y categoria
+                marcaFiltro = (Marca)cboFiltroMarca.SelectedItem;
+                catFiltro = (Categoria)cboFiltroCategoria.SelectedItem;
+
+                //cargo parametro de filtrado adicional
+                string txtFiltrado = cboFiltroParam.SelectedItem.ToString();
+                campoFiltro = txtFiltroParam.Text.Trim();
+                if (campoFiltro.Length > 0)  //si no esta vacio el campo cargo donde corresponda
+                {
+                    if (txtFiltrado == "Código")
+                        codigoFiltro = campoFiltro;
+                    else if (txtFiltrado == "Nombre")
+                        nombreFiltro = campoFiltro;
+                    else if (txtFiltrado == "Descripción")
+                        descripcionFiltro = campoFiltro;
+                }
+
+                //ya seteados los parametros, envio query
+
+                listaArticulos = negocio.filtrar(marcaFiltro, catFiltro, codigoFiltro, nombreFiltro,
+                    descripcionFiltro, precioMinFiltro, precioMaxFiltro);
+                filtrado = true;
+                cargar();
             }
-
-            //ya seteados los parametros, envio query
-
-            listaArticulos = negocio.filtrar(marcaFiltro, catFiltro, codigoFiltro, nombreFiltro, 
-                descripcionFiltro, precioMinFiltro, precioMaxFiltro);
-            filtrado = true;
-            cargar();
+            catch
+            {
+                MessageBox.Show("Se produjo un error al hacer la búsqueda");
+            }
             
         }
 

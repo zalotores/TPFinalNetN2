@@ -92,7 +92,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(11, 293);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -102,7 +102,7 @@
             this.btnModificar.Location = new System.Drawing.Point(197, 293);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 3;
+            this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -112,7 +112,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(377, 293);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 4;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -136,7 +136,7 @@
             this.btnFiltroReset.Location = new System.Drawing.Point(232, 169);
             this.btnFiltroReset.Name = "btnFiltroReset";
             this.btnFiltroReset.Size = new System.Drawing.Size(75, 44);
-            this.btnFiltroReset.TabIndex = 4;
+            this.btnFiltroReset.TabIndex = 1;
             this.btnFiltroReset.Text = "Borrar filtros";
             this.btnFiltroReset.UseVisualStyleBackColor = true;
             this.btnFiltroReset.Click += new System.EventHandler(this.btnFiltroReset_Click);
@@ -146,7 +146,7 @@
             this.btnFiltroAceptar.Location = new System.Drawing.Point(232, 111);
             this.btnFiltroAceptar.Name = "btnFiltroAceptar";
             this.btnFiltroAceptar.Size = new System.Drawing.Size(75, 42);
-            this.btnFiltroAceptar.TabIndex = 3;
+            this.btnFiltroAceptar.TabIndex = 0;
             this.btnFiltroAceptar.Text = "Filtrar";
             this.btnFiltroAceptar.UseVisualStyleBackColor = true;
             this.btnFiltroAceptar.Click += new System.EventHandler(this.btnFiltroAceptar_Click);
@@ -169,14 +169,14 @@
             this.txtFiltroRangoMax.Location = new System.Drawing.Point(69, 48);
             this.txtFiltroRangoMax.Name = "txtFiltroRangoMax";
             this.txtFiltroRangoMax.Size = new System.Drawing.Size(121, 20);
-            this.txtFiltroRangoMax.TabIndex = 3;
+            this.txtFiltroRangoMax.TabIndex = 1;
             // 
             // txtFiltroRangoMin
             // 
             this.txtFiltroRangoMin.Location = new System.Drawing.Point(69, 23);
             this.txtFiltroRangoMin.Name = "txtFiltroRangoMin";
             this.txtFiltroRangoMin.Size = new System.Drawing.Size(121, 20);
-            this.txtFiltroRangoMin.TabIndex = 2;
+            this.txtFiltroRangoMin.TabIndex = 0;
             // 
             // lblFiltroRangoMax
             // 
@@ -211,11 +211,12 @@
             // 
             // cboFiltroParam
             // 
+            this.cboFiltroParam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFiltroParam.FormattingEnabled = true;
             this.cboFiltroParam.Location = new System.Drawing.Point(69, 20);
             this.cboFiltroParam.Name = "cboFiltroParam";
             this.cboFiltroParam.Size = new System.Drawing.Size(121, 21);
-            this.cboFiltroParam.TabIndex = 3;
+            this.cboFiltroParam.TabIndex = 0;
             // 
             // lblParamValor
             // 
@@ -275,6 +276,7 @@
             // 
             // cboFiltroMarca
             // 
+            this.cboFiltroMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFiltroMarca.FormattingEnabled = true;
             this.cboFiltroMarca.Location = new System.Drawing.Point(69, 60);
             this.cboFiltroMarca.Name = "cboFiltroMarca";
@@ -283,6 +285,7 @@
             // 
             // cboFiltroCategoria
             // 
+            this.cboFiltroCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFiltroCategoria.FormattingEnabled = true;
             this.cboFiltroCategoria.Location = new System.Drawing.Point(69, 24);
             this.cboFiltroCategoria.Name = "cboFiltroCategoria";
@@ -297,7 +300,7 @@
             this.menuPrincipal.Location = new System.Drawing.Point(756, 0);
             this.menuPrincipal.Name = "menuPrincipal";
             this.menuPrincipal.Size = new System.Drawing.Size(58, 363);
-            this.menuPrincipal.TabIndex = 6;
+            this.menuPrincipal.TabIndex = 4;
             this.menuPrincipal.Text = "menuStrip1";
             // 
             // soporteToolStripMenuItem
