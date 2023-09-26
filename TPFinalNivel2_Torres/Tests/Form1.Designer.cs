@@ -35,12 +35,17 @@
             this.lblDesconectadoResultado = new System.Windows.Forms.Label();
             this.groupBoxTestDDBB = new System.Windows.Forms.GroupBox();
             this.groupBoxTestTablasAuxiliares = new System.Windows.Forms.GroupBox();
-            this.btnTestTablaMarcas = new System.Windows.Forms.Button();
-            this.btnTestTablaCategoria = new System.Windows.Forms.Button();
             this.dgvTestTablasAux = new System.Windows.Forms.DataGridView();
+            this.btnTestTablaCategoria = new System.Windows.Forms.Button();
+            this.btnTestTablaMarcas = new System.Windows.Forms.Button();
+            this.groupBoxMarcaCat = new System.Windows.Forms.GroupBox();
+            this.btnTestMarcaGenerado = new System.Windows.Forms.Button();
+            this.btnTestCategoriaGenerado = new System.Windows.Forms.Button();
+            this.btnTestArticuloGenerado = new System.Windows.Forms.Button();
             this.groupBoxTestDDBB.SuspendLayout();
             this.groupBoxTestTablasAuxiliares.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTablasAux)).BeginInit();
+            this.groupBoxMarcaCat.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTestDDBB
@@ -113,15 +118,13 @@
             this.groupBoxTestTablasAuxiliares.TabStop = false;
             this.groupBoxTestTablasAuxiliares.Text = "Conexion a Tablas Auxiliares";
             // 
-            // btnTestTablaMarcas
+            // dgvTestTablasAux
             // 
-            this.btnTestTablaMarcas.Location = new System.Drawing.Point(6, 31);
-            this.btnTestTablaMarcas.Name = "btnTestTablaMarcas";
-            this.btnTestTablaMarcas.Size = new System.Drawing.Size(75, 23);
-            this.btnTestTablaMarcas.TabIndex = 0;
-            this.btnTestTablaMarcas.Text = "Marcas";
-            this.btnTestTablaMarcas.UseVisualStyleBackColor = true;
-            this.btnTestTablaMarcas.Click += new System.EventHandler(this.btnTestTablaMarcas_Click);
+            this.dgvTestTablasAux.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTestTablasAux.Location = new System.Drawing.Point(7, 61);
+            this.dgvTestTablasAux.Name = "dgvTestTablasAux";
+            this.dgvTestTablasAux.Size = new System.Drawing.Size(263, 154);
+            this.dgvTestTablasAux.TabIndex = 2;
             // 
             // btnTestTablaCategoria
             // 
@@ -133,19 +136,64 @@
             this.btnTestTablaCategoria.UseVisualStyleBackColor = true;
             this.btnTestTablaCategoria.Click += new System.EventHandler(this.btnTestTablaCategoria_Click);
             // 
-            // dgvTestTablasAux
+            // btnTestTablaMarcas
             // 
-            this.dgvTestTablasAux.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTestTablasAux.Location = new System.Drawing.Point(7, 61);
-            this.dgvTestTablasAux.Name = "dgvTestTablasAux";
-            this.dgvTestTablasAux.Size = new System.Drawing.Size(263, 154);
-            this.dgvTestTablasAux.TabIndex = 2;
+            this.btnTestTablaMarcas.Location = new System.Drawing.Point(6, 31);
+            this.btnTestTablaMarcas.Name = "btnTestTablaMarcas";
+            this.btnTestTablaMarcas.Size = new System.Drawing.Size(75, 23);
+            this.btnTestTablaMarcas.TabIndex = 0;
+            this.btnTestTablaMarcas.Text = "Marcas";
+            this.btnTestTablaMarcas.UseVisualStyleBackColor = true;
+            this.btnTestTablaMarcas.Click += new System.EventHandler(this.btnTestTablaMarcas_Click);
+            // 
+            // groupBoxMarcaCat
+            // 
+            this.groupBoxMarcaCat.Controls.Add(this.btnTestArticuloGenerado);
+            this.groupBoxMarcaCat.Controls.Add(this.btnTestCategoriaGenerado);
+            this.groupBoxMarcaCat.Controls.Add(this.btnTestMarcaGenerado);
+            this.groupBoxMarcaCat.Location = new System.Drawing.Point(546, 13);
+            this.groupBoxMarcaCat.Name = "groupBoxMarcaCat";
+            this.groupBoxMarcaCat.Size = new System.Drawing.Size(242, 109);
+            this.groupBoxMarcaCat.TabIndex = 7;
+            this.groupBoxMarcaCat.TabStop = false;
+            this.groupBoxMarcaCat.Text = "Generar Modelo";
+            // 
+            // btnTestMarcaGenerado
+            // 
+            this.btnTestMarcaGenerado.Location = new System.Drawing.Point(33, 30);
+            this.btnTestMarcaGenerado.Name = "btnTestMarcaGenerado";
+            this.btnTestMarcaGenerado.Size = new System.Drawing.Size(75, 23);
+            this.btnTestMarcaGenerado.TabIndex = 0;
+            this.btnTestMarcaGenerado.Text = "Marca";
+            this.btnTestMarcaGenerado.UseVisualStyleBackColor = true;
+            this.btnTestMarcaGenerado.Click += new System.EventHandler(this.btnTestMarcaGenerado_Click);
+            // 
+            // btnTestCategoriaGenerado
+            // 
+            this.btnTestCategoriaGenerado.Location = new System.Drawing.Point(145, 30);
+            this.btnTestCategoriaGenerado.Name = "btnTestCategoriaGenerado";
+            this.btnTestCategoriaGenerado.Size = new System.Drawing.Size(75, 23);
+            this.btnTestCategoriaGenerado.TabIndex = 1;
+            this.btnTestCategoriaGenerado.Text = "Categoría";
+            this.btnTestCategoriaGenerado.UseVisualStyleBackColor = true;
+            this.btnTestCategoriaGenerado.Click += new System.EventHandler(this.btnTestCategoriaGenerado_Click);
+            // 
+            // btnTestArticuloGenerado
+            // 
+            this.btnTestArticuloGenerado.Location = new System.Drawing.Point(84, 80);
+            this.btnTestArticuloGenerado.Name = "btnTestArticuloGenerado";
+            this.btnTestArticuloGenerado.Size = new System.Drawing.Size(75, 23);
+            this.btnTestArticuloGenerado.TabIndex = 2;
+            this.btnTestArticuloGenerado.Text = "Artículo";
+            this.btnTestArticuloGenerado.UseVisualStyleBackColor = true;
+            this.btnTestArticuloGenerado.Click += new System.EventHandler(this.btnTestArticuloGenerado_Click);
             // 
             // formTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBoxMarcaCat);
             this.Controls.Add(this.groupBoxTestTablasAuxiliares);
             this.Controls.Add(this.groupBoxTestDDBB);
             this.Name = "formTest";
@@ -155,6 +203,7 @@
             this.groupBoxTestDDBB.PerformLayout();
             this.groupBoxTestTablasAuxiliares.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestTablasAux)).EndInit();
+            this.groupBoxMarcaCat.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -171,6 +220,10 @@
         private System.Windows.Forms.Button btnTestTablaCategoria;
         private System.Windows.Forms.Button btnTestTablaMarcas;
         private System.Windows.Forms.DataGridView dgvTestTablasAux;
+        private System.Windows.Forms.GroupBox groupBoxMarcaCat;
+        private System.Windows.Forms.Button btnTestArticuloGenerado;
+        private System.Windows.Forms.Button btnTestCategoriaGenerado;
+        private System.Windows.Forms.Button btnTestMarcaGenerado;
     }
 }
 

@@ -22,8 +22,8 @@ namespace VistaPrincipal
 
         private void Principal_Load(object sender, EventArgs e)
         {
-            cargar();
-            //TODO agregar carga de combo box de filtros
+            //inicio filtros, seteo valor a vacio, y cargo listado de articulos
+            iniciarFiltros();
         }
 
         //carga de tabla
@@ -122,20 +122,124 @@ namespace VistaPrincipal
         //borrar filtros y resetear lista de articulos
         private void btnFiltroReset_Click(object sender, EventArgs e)
         {
-            //borar todos los filtros
-            cboFiltroCategoria.ResetText();
-            cboFiltroMarca.ResetText();
-            cboFiltroParam.ResetText();
-            txtFiltroParam.Text = "";
-            txtFiltroRangoMin.Text = "";
-            txtFiltroRangoMax.Text = "";
-            //volver a cargar lista
-            cargar();
+            resetFiltros();
         }
         //logica para filtrar datos
         private void btnFiltroAceptar_Click(object sender, EventArgs e)
         {
-            //TODO
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            //genero variables para enviar el filtro
+            Marca marcaFiltro = new Marca();
+            Categoria catFiltro = new Categoria();
+            string codigoFiltro = "";
+            string nombreFiltro = "";
+            string descripcionFiltro = "";
+            string campoFiltro = "";
+            decimal precioMinFiltro = 0;
+            decimal precioMaxFiltro = 0;
+
+            //filtro valores incorrectos precio
+            try
+            {
+                if(txtFiltroRangoMin.Text.Length > 0)   //reviso que no este vacio
+                    precioMinFiltro = decimal.Parse(txtFiltroRangoMin.Text);
+                if (txtFiltroRangoMin.Text.Contains("."))   //reviso que tenga ',' en lugar de '.'
+                    throw new FormatException();
+                if (txtFiltroRangoMax.Text.Length > 0)
+                    precioMaxFiltro = decimal.Parse(txtFiltroRangoMax.Text);
+                if(txtFiltroRangoMax.Text.Contains("."))
+                    throw new FormatException();
+                if (precioMinFiltro < 0)
+                    throw new Exception("El precio mínimo debe ser mayor o igual a cero.");
+                if (precioMaxFiltro < precioMinFiltro)
+                    throw new Exception("Precio máximo no puede ser menor al precio mínimo.");
+            }
+            catch(FormatException)
+            {
+                MessageBox.Show("Ingrese correctamente el parametro Precio.");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            // cargo marca y categoria
+            marcaFiltro = (Marca) cboFiltroMarca.SelectedItem;
+            catFiltro = (Categoria)cboFiltroCategoria.SelectedItem;
+
+            //cargo parametro de filtrado adicional
+            string filtrado = cboFiltroParam.SelectedItem.ToString();
+            campoFiltro = txtFiltroParam.Text.Trim();
+            if (campoFiltro.Length > 1)  //si no esta vacio el campo cargo donde corresponda
+            {
+                if (filtrado == "Código")
+                    codigoFiltro = campoFiltro;
+                else if(filtrado == "Nombre")
+                    nombreFiltro = campoFiltro;
+                else if(filtrado == "Descripción")
+                    descripcionFiltro = campoFiltro;
+            }
+
+            //ya seteados los parametros, envio query
+
+            negocio.filtrar(marcaFiltro, catFiltro, codigoFiltro, nombreFiltro, 
+                descripcionFiltro, precioMinFiltro, precioMaxFiltro);
+            
+        }
+
+        //funcion reset filtros
+        private void resetFiltros()
+        {
+            //borrar todos los filtros
+            cboFiltroCategoria.SelectedIndex = 0;
+            cboFiltroMarca.SelectedIndex = 0;
+            cboFiltroParam.ResetText();
+            txtFiltroParam.Text = "";
+            txtFiltroRangoMin.Text = "";
+            txtFiltroRangoMax.Text = "";
+
+            //volver a cargar lista
+            cargar();
+        }
+
+        //funcion para inicializar combo box de filtros
+        private void iniciarFiltros()
+        {
+            //filtro para seccion marca / categoria
+            List<Marca> listaMarcas = new List<Marca>();
+            MarcaNegocio marcaNeg = new MarcaNegocio();
+            listaMarcas = marcaNeg.listar();
+            Marca ceroM = new Marca();  //cargo el primer item vacio con id = 0
+            ceroM.Descripcion = "";
+            cboFiltroMarca.Items.Add(ceroM);
+            foreach (Marca i in listaMarcas)
+            {
+                cboFiltroMarca.Items.Add(i);
+            }
+
+            cboFiltroMarca.ValueMember = "Id";
+            cboFiltroMarca.DisplayMember = "Descripcion";
+
+            List<Categoria> listaCategoria = new List<Categoria>();
+            CategoriaNegocio catNeg = new CategoriaNegocio();
+            listaCategoria = catNeg.listar();
+            Categoria ceroC = new Categoria();
+            ceroC.Descripcion = "";
+            cboFiltroCategoria.Items.Add(ceroC);
+            foreach(Categoria i in listaCategoria)
+            {
+                cboFiltroCategoria.Items.Add(i);
+            }
+            cboFiltroCategoria.ValueMember = "Id";
+            cboFiltroCategoria.DisplayMember = "Descripcion";
+
+            //filtros para seccion parametros
+            cboFiltroParam.Items.Add("");
+            cboFiltroParam.Items.Add("Código");
+            cboFiltroParam.Items.Add("Nombre");
+            cboFiltroParam.Items.Add("Descripción");
+
+            resetFiltros();
         }
     }
 }

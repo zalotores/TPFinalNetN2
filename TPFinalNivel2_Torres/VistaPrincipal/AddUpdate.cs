@@ -118,8 +118,8 @@ namespace VistaPrincipal
                     articulo.CodigoArticulo = txtAddCodigo.Text.ToUpper();
                     articulo.Nombre = txtAddNombre.Text;
                     articulo.Descripcion = txtAddDescripcion.Text;
-                    articulo.Marca = (Marca)cboAddMarca.SelectedItem;
-                    articulo.Categoria = (Categoria)cboAddCategoria.SelectedItem;
+                    articulo.Marca = (Marca) cboAddMarca.SelectedItem;
+                    articulo.Categoria = (Categoria) cboAddCategoria.SelectedItem;
                     //genero un error si el precio tiene punto en lugar de coma
                     if (txtAddPrecio.Text.Contains('.'))
                         throw new FormatException();

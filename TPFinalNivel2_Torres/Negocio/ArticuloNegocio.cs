@@ -147,6 +147,22 @@ namespace Negocio
             }
 
         }
+        /*query para filtrar articulos
+         * Parametros:
+         * Marca y Categoria: se genera desde constructor y se copia valor, en caso de no 
+         * filtrar por este criterio, el id desde contructor es 0.
+         * Codigo, Nombre, Descripcion: el filtro hace un strip de espacios en blanco al 
+         * principio y al final del string, y filtra si el campo contiene el string
+         * precioMin y precioMax: si los dos estan en cero, no filtra. No debe tener '.'.
+         */
+        public List<Articulo> filtrar(Marca marca, Categoria categoria, string codigo, 
+            string nombre, string descripcion, decimal precioMin, decimal precioMax)
+        {
+            List<Articulo> listaFiltrada = new List<Articulo> ();
+            //TODO
+
+            return listaFiltrada;
+        }
 
     }
 }
