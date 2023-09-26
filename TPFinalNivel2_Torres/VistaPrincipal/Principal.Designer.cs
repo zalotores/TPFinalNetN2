@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.lblExplicacionPrincipal = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -293,16 +294,16 @@
             this.menuPrincipal.Dock = System.Windows.Forms.DockStyle.Right;
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.soporteToolStripMenuItem});
-            this.menuPrincipal.Location = new System.Drawing.Point(688, 0);
+            this.menuPrincipal.Location = new System.Drawing.Point(756, 0);
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.Size = new System.Drawing.Size(126, 363);
+            this.menuPrincipal.Size = new System.Drawing.Size(58, 363);
             this.menuPrincipal.TabIndex = 6;
             this.menuPrincipal.Text = "menuStrip1";
             // 
             // soporteToolStripMenuItem
             // 
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
-            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(45, 19);
             this.soporteToolStripMenuItem.Text = "About";
             this.soporteToolStripMenuItem.Click += new System.EventHandler(this.soporteToolStripMenuItem_Click);
             // 
@@ -318,6 +319,7 @@
             this.Controls.Add(this.lblExplicacionPrincipal);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.menuPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuPrincipal;
             this.MaximumSize = new System.Drawing.Size(830, 460);
             this.MinimumSize = new System.Drawing.Size(830, 360);
